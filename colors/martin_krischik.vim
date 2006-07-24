@@ -5,7 +5,7 @@
 "   Maintainer:	Martin Krischik 
 "      $Author: krischik $
 "        $Date: 2006-05-25 11:24:57 +0200 (Do, 25 Mai 2006) $
-"      Version: 1.1 
+"      Version: 3.0 
 "    $Revision: 214 $
 "     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/colors/martin_krischik.vim $
 "	  Note:	Tried and Tested for 'builtin_gui', 'xterm' (KDE Konsole)
@@ -13,6 +13,7 @@
 "      History: 16.05.2006 MK Check that all vim 7.0 colors are set
 "		16.05.2006 MK Split GUI from terminal.
 "		24.05.2006 MK Unified Headers
+"		24.07.2006 MK Omni-Completion Colors.
 "	 Usage: copy to colors directory
 "------------------------------------------------------------------------------
 
@@ -27,9 +28,14 @@ endif
 
 let colors_name = "martin_krischik"
 
-if (&term == "builtin_gui")
-
+if version < 700
+    " works only with vim 7.0 use default otherwise
+    colorscheme default
+    finish
+elseif (&term == "builtin_gui")
+    "
     " Set GUI colors.
+    "
 
     "---------- User-Interface Colors ----------------------------------------
     "
@@ -76,13 +82,13 @@ if (&term == "builtin_gui")
     highlight TabLineFill	gui=reverse
     highlight TabLineSel	gui=bold,reverse	guifg=LightBlue2    guibg=black
     "
-    " Menu colors
+    " Competion (omni and otherwise) menu colors
     "
-    highlight Pmenu							    guibg=LightMagenta
-    highlight PmenuSel							    guibg=Grey
-    highlight PmenuSbar							    guibg=Grey
-    highlight PmenuThumb	gui=reverse
-    highlight WildMenu					guifg=Black	    guibg=Yellow
+    highlight Pmenu							    guibg=Grey
+    highlight PmenuSel					guifg=White	    guibg=firebrick
+    highlight PmenuSbar					guibg=LightGrey	    guibg=DarkGrey
+    highlight PmenuThumb	gui=reverse					    
+    highlight WildMenu					guifg=White	    guibg=firebrick
     "
     " Diff colors
     "
@@ -100,9 +106,12 @@ if (&term == "builtin_gui")
     "
     highlight Directory		guifg=Blue
     highlight SignColumn	guifg=DarkBlue	    guibg=Grey
-    " highlight Menu
-    " highlight Scrollbar
-    " highlight Tooltip
+    "
+    "  Motif and Athena widget colors.
+    "
+    highlight Menu		guifg=Black	    guibg=LightGrey
+    highlight Scrollbar		guifg=LightGrey	    guibg=DarkGrey	    
+    highlight Tooltip		guifg=Black	    guibg=LightGrey
 
     "---------- Syntax Colors ------------------------------------------------
     "
@@ -206,9 +215,9 @@ if (&term == "builtin_gui")
 elseif	(&term == "xterm")  ||
       \ (&term == "vt320")  ||
       \ (&term == "linux")
-
+    "
     " Only set colors for terminals we actualy know of
-
+    "
     if &term=="vt320"
 	set t_Co=8
     else
@@ -262,11 +271,11 @@ elseif	(&term == "xterm")  ||
     "
     " Menu colors
     "
-    highlight Pmenu										ctermbg=DarkMagenta
-    highlight PmenuSel										ctermbg=LightGray
-    highlight PmenuSbar										ctermbg=LightGray
+    highlight Pmenu										ctermbg=Grey
+    highlight PmenuSel							    ctermfg=White	ctermbg=Red
+    highlight PmenuSbar							    ctermfg=LightGrey	ctermbg=DarkGray
     highlight PmenuThumb			    cterm=reverse
-    highlight WildMenu		term=standout				    ctermfg=Black	ctermbg=Yellow
+    highlight WildMenu		term=standout				    ctermfg=White	ctermbg=Red
     "
     " Diff colors
     "
@@ -284,9 +293,6 @@ elseif	(&term == "xterm")  ||
     "
     highlight Directory		term=bold				    ctermfg=DarkBlue	ctermbg=LightGray
     highlight SignColumn	term=standout				    ctermfg=DarkBlue	ctermbg=DarkGray
-    " highlight Menu
-    " highlight Scrollbar
-    " highlight Tooltip
 
     "---------- Syntax Colors ------------------------------------------------
     "
@@ -371,9 +377,9 @@ elseif	(&term == "xterm")  ||
 
     finish
 else
-
+    "
     " terminal is completely unknown - fallback to system default
-
+    "
     set t_Co=8
 
     finish
