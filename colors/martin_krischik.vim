@@ -1,12 +1,12 @@
 "-------------------------------------------------------------------------------
 "  Description: My personal colors
-"          $Id: martin_krischik.vim 214 2006-05-25 09:24:57Z krischik $
+"          $Id: martin_krischik.vim 458 2006-11-18 09:42:10Z krischik $
 "    Copyright: Copyright (C) 2006 Martin Krischik
-"   Maintainer:	Martin Krischik 
+"   Maintainer:	Martin Krischik
 "      $Author: krischik $
-"        $Date: 2006-05-25 11:24:57 +0200 (Do, 25 Mai 2006) $
-"      Version: 3.0 
-"    $Revision: 214 $
+"        $Date: 2006-11-18 10:42:10 +0100 (Sa, 18 Nov 2006) $
+"      Version: 3.2
+"    $Revision: 458 $
 "     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/colors/martin_krischik.vim $
 "	  Note:	Tried and Tested for 'builtin_gui', 'xterm' (KDE Konsole)
 "		'vt320'" (OpenVMS) and 'linux' (Linux Console).
@@ -14,6 +14,7 @@
 "		16.05.2006 MK Split GUI from terminal.
 "		24.05.2006 MK Unified Headers
 "		24.07.2006 MK Omni-Completion Colors.
+"               15.10.2006 MK Bram's suggestion for runtime integration
 "	 Usage: copy to colors directory
 "------------------------------------------------------------------------------
 
@@ -29,17 +30,18 @@ endif
 let colors_name = "martin_krischik"
 
 if version < 700
-    " works only with vim 7.0 use default otherwise
-    colorscheme default
-    finish
+   " Section: works only with vim 7.0 use default otherwise {{{1
+   "
+   colorscheme default
+   "
+   " }}}1
+   finish
 elseif (&term == "builtin_gui")
+    " Section: Set GUI colors. {{{1
     "
-    " Set GUI colors.
+    " Subsection: User-Interface Colors {{{2
     "
-
-    "---------- User-Interface Colors ----------------------------------------
-    "
-    " Normal Text Colors
+    " Group: Normal Text Colors {{{3
     "
     highlight Normal		gui=none		guifg=black	    guibg=white
     highlight Search							    guibg=Yellow
@@ -50,7 +52,7 @@ elseif (&term == "builtin_gui")
     highlight MatchParen						    guibg=Cyan
     highlight IncSearch		gui=reverse
     "
-    " Messages
+    " Group: Messages {{{3
     "
     highlight WarningMsg				guifg=Red
     highlight ErrorMsg					guifg=White	    guibg=Red
@@ -58,68 +60,68 @@ elseif (&term == "builtin_gui")
     highlight MoreMsg		gui=bold		guifg=SeaGreen
     highlight Question		gui=bold		guifg=SeaGreen
     "
-    " Spell Checker
+    " Group: Spell Checker {{{3
     "
     highlight SpellBad		gui=undercurl							guisp=Red
     highlight SpellCap		gui=undercurl							guisp=Blue
     highlight SpellLocal	gui=undercurl							guisp=DarkCyan
     highlight SpellRare		gui=undercurl							guisp=Magenta
     "
-    " Status line
+    " Group: Status line {{{3
     "
     highlight StatusLine	gui=bold,reverse	guifg=LightBlue2    guibg=black
     highlight StatusLineNC	gui=reverse		guifg=grey75	    guibg=black
     highlight VertSplit		gui=reverse		guifg=LightBlue3    guibg=black
     "
-    " Visual selektion
+    " Group: Visual selektio {{{3n
     "
     highlight Visual		gui=reverse		guifg=firebrick     guibg=white
     highlight VisualNOS		gui=reverse		guifg=firebrick     guibg=black
     "
-    " tab pages line
+    " Group: tab pages line {{{3
     "
     highlight TabLine		gui=reverse		guifg=grey75	    guibg=black
     highlight TabLineFill	gui=reverse
     highlight TabLineSel	gui=bold,reverse	guifg=LightBlue2    guibg=black
     "
-    " Competion (omni and otherwise) menu colors
+    " Group: Competion (omni and otherwise) menu colors {{{3
     "
     highlight Pmenu							    guibg=Grey
     highlight PmenuSel					guifg=White	    guibg=firebrick
     highlight PmenuSbar					guibg=LightGrey	    guibg=DarkGrey
-    highlight PmenuThumb	gui=reverse					    
+    highlight PmenuThumb	gui=reverse
     highlight WildMenu					guifg=White	    guibg=firebrick
     "
-    " Diff colors
+    " Group: Diff colors {{{3
     "
     highlight DiffAdd							    guibg=LightBlue
     highlight DiffChange						    guibg=LightMagenta
     highlight DiffDelete	gui=bold		guifg=Blue	    guibg=LightCyan
     highlight DiffText		gui=bold				    guibg=Red
     "
-    " Fold colors
+    " Group: Fold colors {{{3
     "
     highlight FoldColumn				guifg=DarkBlue	    guibg=Grey
     highlight Folded					guifg=DarkBlue	    guibg=LightGrey
     "
-    " Other Syntax Highlight Colors
+    " Group: Other Syntax Highlight Colors {{{3
     "
     highlight Directory		guifg=Blue
     highlight SignColumn	guifg=DarkBlue	    guibg=Grey
     "
-    "  Motif and Athena widget colors.
+    " Group: Motif and Athena widget colors. {{{3
     "
     highlight Menu		guifg=Black	    guibg=LightGrey
-    highlight Scrollbar		guifg=LightGrey	    guibg=DarkGrey	    
+    highlight Scrollbar		guifg=LightGrey	    guibg=DarkGrey
     highlight Tooltip		guifg=Black	    guibg=LightGrey
 
-    "---------- Syntax Colors ------------------------------------------------
+    " Subsection: Syntax Colors  {{{2
     "
-    " Comment colors syntax-group
+    " Group: Comment colors syntax-group
     "
     highlight Comment					guifg=grey30
     "
-    " Constant colors group
+    " Group: Constant colors group {{{3
     "
     highlight Boolean					guifg=DarkOrchid3   guibg=grey95
     highlight Character					guifg=RoyalBlue3    guibg=grey95
@@ -128,12 +130,12 @@ elseif (&term == "builtin_gui")
     highlight Number					guifg=DarkOrchid4   guibg=grey95
     highlight String					guifg=RoyalBlue4    guibg=grey95
     "
-    " Identifier colors group
+    " Group: Identifier colors group {{{3
     "
     highlight Function					guifg=SteelBlue
     highlight Identifier				guifg=DarkCyan
     "
-    " Statement colors group
+    " Group: Statement colors group {{{3
     "
     highlight Conditional	gui=bold		guifg=DodgerBlue4
     highlight Exception		gui=none		guifg=SlateBlue4
@@ -143,7 +145,7 @@ elseif (&term == "builtin_gui")
     highlight Repeat		gui=bold		guifg=DodgerBlue3
     highlight Statement		gui=none		guifg=RoyalBlue4
     "
-    " Preprocessor colors group
+    " Group: Preprocessor colors group {{{3
     "
     highlight Define					guifg=brown4	    guibg=snow
     highlight Include					guifg=firebrick3    guibg=snow
@@ -151,14 +153,14 @@ elseif (&term == "builtin_gui")
     highlight PreCondit					guifg=red	    guibg=snow
     highlight PreProc					guifg=firebrick4    guibg=snow
     "
-    " type group
+    " Group: type group {{{3
     "
     highlight StorageClass	gui=none		guifg=SeaGreen3
     highlight Structure		gui=none		guifg=DarkSlateGray4
     highlight Type		gui=none		guifg=SeaGreen4
     highlight Typedef		gui=none		guifg=DarkSeaGreen4
     "
-    " special symbol group
+    " Group: special symbol group {{{3
     "
     highlight Special					guifg=SlateBlue     guibg=GhostWhite
     highlight SpecialChar				guifg=DeepPink	    guibg=GhostWhite
@@ -167,25 +169,25 @@ elseif (&term == "builtin_gui")
     highlight SpecialComment				guifg=VioletRed     guibg=GhostWhite
     highlight Debug					guifg=maroon	    guibg=GhostWhite
     "
-    " text that stands out
+    " Group: text that stands out {{{3
     "
     highlight Underlined	gui=underline		guifg=SlateBlue
     "
-    " left blank, hidden
+    " Group: left blank, hidden {{{3
     "
     highlight Ignore					guifg=bg
     "
-    " any erroneous construct
+    " Group: any erroneous construct {{{3
     "
     highlight Error		gui=undercurl		guifg=Red	    guibg=MistyRose
     "
-    " anything that needs extra attention
+    " Group: anything that needs extra attention {{{3
     "
     highlight Todo					guifg=Blue	    guibg=Yellow
 
-    "---------- Cursor Colors ------------------------------------------------
+    " Subsection: Cursor Colors {{{2
     "
-    " Mouse Cursor
+    " Group: Mouse Cursor {{{3
     "
     highlight cCursor	     guifg=bg	 guibg=DarkRed
     highlight Cursor	     guifg=bg	 guibg=DarkGreen
@@ -196,7 +198,7 @@ elseif (&term == "builtin_gui")
     highlight oCursor	     guifg=bg	 guibg=DarkCyan
     highlight vCursor	     guifg=bg	 guibg=DarkYellow
     "
-    " Text Cursor
+    " Group: Text Cursor {{{3
     "
     set guicursor=n:block-lCursor,
 		 \i:ver25-Cursor,
@@ -209,14 +211,14 @@ elseif (&term == "builtin_gui")
 		\cr:hor20-cCursor,
 		\sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
-    syntax enable
+   syntax enable
 
-    finish
+   " }}}1
+   finish
 elseif	(&term == "xterm")  ||
       \ (&term == "vt320")  ||
       \ (&term == "linux")
-    "
-    " Only set colors for terminals we actualy know of
+    " Section: Only set colors for terminals we actualy know of {{{1
     "
     if &term=="vt320"
 	set t_Co=8
@@ -224,9 +226,9 @@ elseif	(&term == "xterm")  ||
 	set t_Co=16
     endif
 
-    "---------- User-Interface Colors ----------------------------------------
+    " Subsection: User Interface Colors {{{2
     "
-    " Normal Text Colors
+    " Group: Normal Text Colors {{{3
     "
     highlight Normal		term=none	    cterm=none		    ctermfg=Black	ctermbg=LightGray
     highlight Search		term=reverse							ctermbg=DarkYellow
@@ -237,7 +239,7 @@ elseif	(&term == "xterm")  ||
     highlight MatchParen	term=reverse				    ctermbg=DarkYellow
     highlight IncSearch		term=reverse	    cterm=reverse
     "
-    " Messages
+    " Group: Messages {{{3
     "
     highlight WarningMsg	term=standout				    ctermfg=DarkRed	ctermbg=LightGray
     highlight ErrorMsg		term=standout				    ctermfg=White	ctermbg=DarkRed
@@ -245,31 +247,31 @@ elseif	(&term == "xterm")  ||
     highlight MoreMsg		term=bold				    ctermfg=DarkGreen	ctermbg=LightGray
     highlight Question		term=standout				    ctermfg=DarkGreen	ctermbg=LightGray
     "
-    " Spell Checker
+    " Group: Spell Checker {{{3
     "
     highlight SpellBad		term=reverse							ctermbg=LightRed
     highlight SpellCap		term=reverse							ctermbg=LightBlue
     highlight SpellLocal	term=underline							ctermbg=LightCyan
     highlight SpellRare		term=reverse							ctermbg=LightMagenta
     "
-    " Status line
+    " Group: Status line {{{3
     "
     highlight StatusLine	term=bold,reverse   cterm=bold,reverse
     highlight StatusLineNC	term=reverse	    cterm=reverse
     highlight VertSplit		term=reverse	    cterm=reverse
     "
-    " Visual selektion
+    " Group: Visual selektion {{{3
     "
     highlight Visual		term=reverse	    cterm=reverse	    ctermfg=DarkRed	ctermbg=LightGray
     highlight VisualNOS		term=bold,underline cterm=bold,underline
     "
-    " tab pages line
+    " Group: tab pages line {{{3
     "
     highlight TabLine		term=reverse	    cterm=reverse
     highlight TabLineFill	term=reverse	    cterm=reverse
     highlight TabLineSel	term=bold,reverse   cterm=bold,reverse
     "
-    " Menu colors
+    " Group: Menu colors {{{3
     "
     highlight Pmenu										ctermbg=Grey
     highlight PmenuSel							    ctermfg=White	ctermbg=Red
@@ -277,30 +279,30 @@ elseif	(&term == "xterm")  ||
     highlight PmenuThumb			    cterm=reverse
     highlight WildMenu		term=standout				    ctermfg=White	ctermbg=Red
     "
-    " Diff colors
+    " Group: Diff colors {{{3
     "
     highlight DiffAdd		term=bold							ctermbg=LightBlue
     highlight DiffChange	term=bold							ctermbg=LightMagenta
     highlight DiffDelete	term=bold				    ctermfg=LightBlue	ctermbg=LightCyan
     highlight DiffText		term=reverse	    cterm=bold					ctermbg=LightRed
     "
-    " Fold colors
+    " Group: Fold colors {{{3
     "
     highlight FoldColumn	term=standout				    ctermfg=DarkBlue	ctermbg=DarkGray
     highlight Folded		term=standout				    ctermfg=DarkBlue	ctermbg=DarkGray
     "
-    " Other Syntax Highlight Colors
+    " Group: Other Syntax Highlight Colors {{{3
     "
     highlight Directory		term=bold				    ctermfg=DarkBlue	ctermbg=LightGray
     highlight SignColumn	term=standout				    ctermfg=DarkBlue	ctermbg=DarkGray
 
-    "---------- Syntax Colors ------------------------------------------------
+    " Subsection: Syntax Colors {{{2
     "
-    " Comment colors syntax-group
+    " Group: Comment colors syntax-group {{{3
     "
     highlight Comment		term=bold				    ctermfg=DarkGray	ctermbg=LightGray
     "
-    " Constant colors group
+    " Group: Constant colors group {{{3
     "
     highlight Boolean		term=underline				    ctermfg=DarkRed	ctermbg=LightGray
     highlight Character		term=underline				    ctermfg=DarkRed	ctermbg=LightGray
@@ -309,12 +311,12 @@ elseif	(&term == "xterm")  ||
     highlight Number		term=underline				    ctermfg=DarkRed	ctermbg=LightGray
     highlight String		term=underline				    ctermfg=DarkRed	ctermbg=LightGray
     "
-    " Identifier colors group
+    " Group: Identifier colors group {{{3
     "
     highlight Function		term=underline				    ctermfg=DarkCyan	ctermbg=LightGray
     highlight Identifier	term=underline				    ctermfg=DarkCyan	ctermbg=LightGray
     "
-    " Statement colors group
+    " Group: Statement colors group {{{3
     "
     highlight Conditional	term=bold				    ctermfg=DarkBlue	ctermbg=LightGray
     highlight Exception		term=bold				    ctermfg=DarkBlue	ctermbg=LightGray
@@ -324,7 +326,7 @@ elseif	(&term == "xterm")  ||
     highlight Repeat		term=bold				    ctermfg=DarkBlue	ctermbg=LightGray
     highlight Statement		term=bold				    ctermfg=DarkBlue	ctermbg=LightGray
     "
-    " Preprocessor colors group
+    " Group: Preprocessor colors group {{{3
     "
     highlight Define		term=underline				    ctermfg=DarkMagenta	ctermbg=LightGray
     highlight Include		term=underline				    ctermfg=DarkMagenta	ctermbg=LightGray
@@ -332,14 +334,14 @@ elseif	(&term == "xterm")  ||
     highlight PreCondit		term=underline				    ctermfg=DarkMagenta	ctermbg=LightGray
     highlight PreProc		term=underline				    ctermfg=DarkMagenta	ctermbg=LightGray
     "
-    " type group
+    " Group: type group {{{3
     "
     highlight StorageClass	term=underline				    ctermfg=DarkGreen	ctermbg=LightGray
     highlight Structure		term=underline				    ctermfg=DarkGreen	ctermbg=LightGray
     highlight Type		term=underline				    ctermfg=DarkGreen	ctermbg=LightGray
     highlight Typedef		term=underline				    ctermfg=DarkGreen	ctermbg=LightGray
     "
-    " special symbol group
+    " Group: special symbol group {{{3
     "
     highlight Special		term=bold				    ctermfg=DarkMagenta	ctermbg=LightGray
     highlight SpecialChar	term=bold				    ctermfg=DarkMagenta	ctermbg=LightGray
@@ -348,25 +350,25 @@ elseif	(&term == "xterm")  ||
     highlight SpecialComment	term=bold				    ctermfg=DarkMagenta	ctermbg=LightGray
     highlight Debug		term=bold				    ctermfg=DarkMagenta	ctermbg=LightGray
     "
-    " text that stands out
+    " Group: text that stands out {{{3
     "
     highlight Underlined	term=underline	    cterm=underline	    ctermfg=DarkMagenta	ctermbg=LightGray
     "
-    " left blank, hidden
+    " Group: left blank, hidden {{{3
     "
     highlight Ignore							    ctermfg=White	ctermbg=grey
     "
-    " any erroneous construct
+    " Group: any erroneous construct {{{3
     "
     highlight Error		term=reverse				    ctermfg=White	ctermbg=LightRed
     "
-    " anything that needs extra attention
+    " Group: anything that needs extra attention {{{3
     "
     highlight Todo		term=standout				    ctermfg=Black	ctermbg=Yellow
 
-    "---------- Cursor Colors ------------------------------------------------
+    " Subsection: Cursor Colors {{{2
     "
-    " Mouse Cursor
+    " Group: Mouse Cursor {{{3
     "
     highlight Cursor				    ctermfg=bg		    ctermbg=DarkGreen
     highlight CursorColumn	term=reverse				    ctermbg=LightGray
@@ -375,32 +377,21 @@ elseif	(&term == "xterm")  ||
 
     syntax enable
 
+   " }}}1
     finish
 else
-    "
-    " terminal is completely unknown - fallback to system default
-    "
-    set t_Co=8
+   " Section: terminal is completely unknown - fallback to system default {{{1
+   "
+   set t_Co=8
 
-    finish
+   " }}}1
+   finish
 endif
 
 "------------------------------------------------------------------------------
 "   Copyright (C) 2006  Martin Krischik
 "
-"   This program is free software; you can redistribute it and/or
-"   modify it under the terms of the GNU General Public License
-"   as published by the Free Software Foundation; either version 2
-"   of the License, or (at your option) any later version.
-"   
-"   This program is distributed in the hope that it will be useful,
-"   but WITHOUT ANY WARRANTY; without even the implied warranty of
-"   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-"   GNU General Public License for more details.
-"   
-"   You should have received a copy of the GNU General Public License
-"   along with this program; if not, write to the Free Software
-"   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+"   Vim is Charityware - see ":help license" or uganda.txt for licence details.
 "------------------------------------------------------------------------------
-" vim: textwidth=0 nowrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab
-" vim: filetype=vim encoding=latin1 fileformat=unix
+" vim: nowrap tabstop=8 shiftwidth=3 softtabstop=3 noexpandtab
+" vim: filetype=vim foldmethod=marker textwidth=0
