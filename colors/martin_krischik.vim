@@ -1,20 +1,17 @@
 "-------------------------------------------------------------------------------
 "  Description: My personal colors
-"          $Id: martin_krischik.vim 458 2006-11-18 09:42:10Z krischik $
-"    Copyright: Copyright (C) 2006 Martin Krischik
+"    Copyright: Copyright (C) 2006 … 2022 Martin Krischik
 "   Maintainer:	Martin Krischik
-"      $Author: krischik $
-"        $Date: 2006-11-18 10:42:10 +0100 (Sa, 18 Nov 2006) $
-"      Version: 3.2
-"    $Revision: 458 $
-"     $HeadURL: https://svn.sourceforge.net/svnroot/gnuada/trunk/tools/vim/colors/martin_krischik.vim $
+"      Version: 4.0
 "	  Note:	Tried and Tested for 'builtin_gui', 'xterm' (KDE Konsole)
 "		'vt320'" (OpenVMS) and 'linux' (Linux Console).
 "      History: 16.05.2006 MK Check that all vim 7.0 colors are set
 "		16.05.2006 MK Split GUI from terminal.
 "		24.05.2006 MK Unified Headers
 "		24.07.2006 MK Omni-Completion Colors.
-"               15.10.2006 MK Bram's suggestion for runtime integration
+"		15.10.2006 MK Bram's suggestion for runtime integration
+"		19.01.2007 MK Better Link Highlight.
+"		13.12.2007 MK Now Cream compatible
 "	 Usage: copy to colors directory
 "------------------------------------------------------------------------------
 
@@ -211,7 +208,63 @@ elseif (&term == "builtin_gui")
 		\cr:hor20-cCursor,
 		\sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
-   syntax enable
+    " Subsection: User Colors {{{2
+    "
+    " Group: Wikis {{{3
+    "
+    highlight Bold	gui=bold
+    highlight Code					 guifg=SlateBlue      guibg=GhostWhite
+    highlight Header1					 guifg=DarkOrchid3    guibg=grey95
+    highlight Header2					 guifg=RoyalBlue3     guibg=grey95
+    highlight Header3					 guifg=MediumOrchid3  guibg=grey95
+    highlight Header4					 guifg=MediumOrchid4  guibg=grey95
+    highlight Header5					 guifg=DarkOrchid4    guibg=grey95
+    highlight Html					 guifg=DarkSlateBlue  guibg=GhostWhite
+    highlight Italic	gui=Italic
+    highlight Link					 guifg=grey30	      guibg=snow
+    highlight LinkText					 guifg=RoyalBlue4     guibg=snow
+    highlight OList					 guifg=DarkCyan
+    highlight Strike	gui=undercurl
+    highlight Table					 guifg=DarkCyan       guibg=GhostWhite
+    highlight TableColumn				 guifg=VioletRed      guibg=GhostWhite
+    highlight UList					 guifg=SteelBlue
+    highlight Underline	gui=underline
+    "
+    " Group: Cream {{{3
+    "
+    " invisible characters
+    highlight NonText		 gui=none guifg=#99ddff
+    highlight SpecialKey	 gui=none guifg=#99ddff
+    " statusline
+    highlight User1		 gui=bold guifg=#aaaaaa	 guibg=LightBlue2
+    highlight User2		 gui=bold guifg=#000000	 guibg=LightBlue2
+    highlight User3		 gui=bold guifg=#0000ff	 guibg=LightBlue2
+    highlight User4		 gui=bold guifg=#ff0000	 guibg=LightBlue2
+    " bookmarks
+    highlight Cream_ShowMarksHL	 gui=bold guifg=blue	 guibg=lightblue
+    " spell check
+    highlight BadWord		 gui=bold guifg=DarkBlue guibg=#ffdddd
+    " current line
+    highlight DoubleWord	 gui=bold guifg=DarkBlue guibg=#ffeecc
+    highlight CurrentLine	 gui=none		 guibg=#ffffcc
+    highlight CursorLine	 gui=none		 guibg=#ffffcc
+    highlight CursorColumn	 gui=none		 guibg=#ffeedd
+    " email
+    highlight EQuote1			  guifg=#0000cc
+    highlight EQuote2			  guifg=#6666cc
+    highlight EQuote3			  guifg=#9999cc
+    highlight Sig			  guifg=#999999
+
+    syntax enable
+    " Group: Logfiles {{{3
+    "
+   highlight LogLine			     guibg=ivory
+   highlight LogFatal	   guifg=firebrick   guibg=MistyRose
+   highlight LogError	   guifg=firebrick   guibg=ivory
+   highlight LogWarning	   guifg=brown	     guibg=ivory
+   highlight LogInfo	   guifg=blue	     guibg=ivory
+   highlight LogDebug	   guifg=darkgreen   guibg=ivory
+   highlight LogVerbose	   guifg=darkgray    guibg=ivory
 
    " }}}1
    finish
@@ -375,8 +428,63 @@ elseif	(&term == "xterm")  ||
     highlight CursorIM				    ctermfg=bg		    ctermbg=DarkGrey
     highlight CursorLine	term=reverse				    ctermbg=LightGray
 
+    " Subsection: User Colors {{{2
+    "
+    " Group: Wikis {{{3
+    "
+    highlight Bold	   cterm=bold
+    highlight Code				ctermfg=Blue		ctermbg=LightGray
+    highlight Header1				ctermfg=DarkMagenta	ctermbg=LightGrey
+    highlight Header2				ctermfg=DarkBlue	ctermbg=LightGrey
+    highlight Header3				ctermfg=DarkMagenta	ctermbg=LightGrey
+    highlight Header4				ctermfg=DarkMagenta	ctermbg=LightGrey
+    highlight Header5				ctermfg=DarkMagenta	ctermbg=LightGrey
+    highlight Html				ctermfg=DarkBlue	ctermbg=LightGrey
+    highlight Italic	   cterm=Italic
+    highlight Link				ctermfg=DarkGrey	ctermbg=LightGrey
+    highlight LinkText				ctermfg=DarkBlue	ctermbg=LightGrey
+    highlight OList				ctermfg=DarkCyan
+    highlight Strike	   cterm=undercurl
+    highlight Table				ctermfg=DarkCyan	ctermbg=LightGrey
+    highlight TableColumn			ctermfg=LightMagenta	ctermbg=LightGrey
+    highlight UList				ctermfg=Blue
+    highlight Underline	   cterm=underline
+    "
+    " Group: Cream {{{3
+    "
+    " invisible characters
+    highlight NonText	   cterm=none		ctermfg=LightCyan
+    highlight SpecialKey   cterm=none		ctermfg=LightCyan
+    " statusline
+    highlight User1	   cterm=bold,reverse	ctermfg=LightGrey	ctermbg=lightblue
+    highlight User2	   cterm=bold,reverse	ctermfg=Black		ctermbg=lightblue
+    highlight User3	   cterm=bold,reverse	ctermfg=DarkBlue	ctermbg=lightblue
+    highlight User4	   cterm=bold,reverse	ctermfg=DarkRed		ctermbg=lightblue
+    " bookmarks
+    highlight Cream_ShowMarksHL	 cterm=bold	ctermfg=blue		ctermbg=lightblue
+    " spell check
+    highlight BadWord				ctermfg=black		ctermbg=lightblue
+    " current line
+    highlight DoubleWord			ctermfg=black		ctermbg=lightblue
+    highlight CurrentLine  cterm=reverse	ctermfg=Yellow		ctermbg=Black
+    highlight CursorLine   cterm=reverse	ctermfg=Yellow		ctermbg=Black
+    highlight CursorColumn cterm=reverse	ctermfg=Yellow		ctermbg=Black
+    " email
+    highlight EQuote1				ctermfg=DarkBlue
+    highlight EQuote2				ctermfg=DarkGreen
+    highlight EQuote3				ctermfg=DarkCyan
+    highlight Sig				ctermfg=DarkGrey
+
     syntax enable
 
+    " Group: Logfiles {{{3
+    "
+   highlight def LogF_color ctermfg=white    ctermbg=red
+   highlight def LogE_color ctermfg=red
+   highlight def LogW_color ctermfg=brown
+   highlight def LogI_color ctermfg=blue
+   highlight def LogD_color ctermfg=darkgreen
+   highlight def LogV_color ctermfg=gray
    " }}}1
     finish
 else
@@ -389,8 +497,6 @@ else
 endif
 
 "------------------------------------------------------------------------------
-"   Copyright (C) 2006  Martin Krischik
-"
 "   Vim is Charityware - see ":help license" or uganda.txt for licence details.
 "------------------------------------------------------------------------------
 " vim: nowrap tabstop=8 shiftwidth=3 softtabstop=3 noexpandtab

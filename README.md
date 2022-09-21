@@ -1,4 +1,4 @@
-This is a mirror of http://www.vim.org/scripts/script.php?script_id=1538
+This is a maintained mirror of http://www.vim.org/scripts/script.php?script_id=1538
 
 I don't expect anybody bu me to like the colors. But I do think you will like the clean layout of the script file and the symbolic color names used when you plan to create your own color scheme.
 
