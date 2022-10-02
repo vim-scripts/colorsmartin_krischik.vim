@@ -1,0 +1,46 @@
+= Martin Krischik Color Scheme =
+
+This is a maintained mirror of http://www.vim.org/scripts/script.php?script_id=1538
+
+== Description ==
+
+I don't expect anybody but me to like the colours. But I do think you will like the clean layout of the script file and the symbolic colour names used when you plan to create your own colour scheme.
+
+Tested with Linux (gui, terminal, console), MS-Windows (gui, terminal) and OpenVMS (gui, terminal).
+
+Optimised for GUI use and readable with terminal and console.
+
+== Installation ==
+
+Install from https://github.com/krischik/vim-colors using dein (https://github.com/Shougo/dein.vim) or similar:
+
+{{code|lang=vim|
+call dein#begin('$HOME/vimfiles/bundles')
+call dein#add('krischik/vim-colors')
+call dein#end()
+call dein#install()
+}}
+
+== References ==
+
+{|
+|+ Martin Krischik Color Scheme
+|-
+| Vim-Script	|| https://www.vim.org/scripts/script.php?script_id=1538
+|-
+| Source	|| https://github.com/krischik/vim-colors
+|-
+| Wiki		|| https://github.com/krischik/vim-colors/wiki
+|-
+| Releases	|| https://github.com/krischik/vim-colors/releases
+|-
+| Issues	|| https://github.com/krischik/vim-colors/issues
+|-
+| Discussions	|| https://github.com/krischik/vim-colors/discussions
+|}
+
+==Comments==
+
+/* vim: set textwidth=0 wrap tabstop=8 shiftwidth=4 softtabstop=4 noexpandtab : */
+/* vim: set filetype=mediawiki fileencoding=utf8 fileformat=unix foldmethod=marker : */
+/* vim: set nospell spelllang=en_gb : */
