@@ -14,12 +14,10 @@ Optimised for GUI use and readable with terminal and console.
 
 Install from https://github.com/krischik/vim-colors using dein (https://github.com/Shougo/dein.vim) or similar:
 
-{{code|lang=vim|
-call dein#begin('$HOME/vimfiles/bundles')
-call dein#add('krischik/vim-colors')
-call dein#end()
-call dein#install()
-}}
+    call dein#begin('$HOME/vimfiles/bundles')
+    call dein#add('krischik/vim-colors')
+    call dein#end()
+    call dein#install()
 
 == References ==
 
